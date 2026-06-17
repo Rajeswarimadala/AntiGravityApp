@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #FFFFFF;
+    --surface: #F1F5F9;
+    --text: #0F172A;
+    --primary: #2563EB;
+    --border: #E2E8F0;
+  }
+
+  .dark {
+    --bg: #0B0E16;
+    --surface: #151B2B;
+    --text: #F4F6FB;
+    --primary: #5B7CFA;
+    --border: #1E293B;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  @apply transition-colors duration-200;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
