@@ -10,18 +10,18 @@ export const Button = ({
   disabled,
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center justify-center font-medium transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95';
   
   const variants = {
-    primary: 'bg-primary text-white hover:opacity-90 shadow-lg shadow-primary/25',
-    outline: 'border-2 border-primary text-primary hover:bg-primary/10',
-    ghost: 'text-text hover:bg-surface',
+    primary: 'bg-gradient-to-r from-primary to-purple-600 text-white hover:brightness-110 shadow-lg shadow-primary/20 hover:shadow-primary/30',
+    outline: 'border border-border text-text hover:bg-primary/5 hover:border-primary/40',
+    ghost: 'text-text/80 hover:text-text hover:bg-primary/5',
   };
   
   const sizes = {
-    sm: 'text-sm px-3 py-1.5',
-    md: 'text-base px-4 py-2',
-    lg: 'text-lg px-6 py-3',
+    sm: 'text-sm px-4 py-2',
+    md: 'text-base px-5 py-2.5',
+    lg: 'text-lg px-7 py-3.5',
   };
 
   return (

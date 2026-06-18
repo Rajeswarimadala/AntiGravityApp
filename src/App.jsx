@@ -12,9 +12,13 @@ import {
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-text transition-colors duration-200">
+    <div className="min-h-screen bg-background text-text transition-colors duration-200 relative overflow-hidden">
+      {/* Premium Glow Backgrounds */}
+      <div className="ambient-glow" style={{ top: '10%', left: '10%' }}></div>
+      <div className="ambient-glow-2" style={{ bottom: '15%', right: '10%' }}></div>
+      
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<HomePage />} />
