@@ -41,13 +41,18 @@ export const getCurrentUser = async () => {
   return response.data;
 };
 
-export const createItem = async (payload) => {
-  const response = await client.post('/api/items', payload);
+export const createAnalysis = async (payload) => {
+  const response = await client.post('/api/analyses', payload);
   return response.data;
 };
 
-export const getItems = async () => {
-  const response = await client.get('/api/items');
+export const getAnalyses = async () => {
+  const response = await client.get('/api/analyses');
+  return response.data;
+};
+
+export const deleteAnalysis = async (id) => {
+  const response = await client.delete(`/api/analyses/${id}`);
   return response.data;
 };
 

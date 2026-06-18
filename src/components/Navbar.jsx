@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from './Button';
 import { useAuth } from '../context';
-import { LogOut, LayoutDashboard, User } from 'lucide-react';
+import { LogOut, LayoutDashboard, User, History, Bell } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 export const Navbar = () => {
@@ -26,7 +26,7 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <Link to="/" className="text-2xl font-extrabold text-gradient hover:opacity-90 transition-opacity">
-              AntiGravity
+              SocialGuard
             </Link>
           </div>
           <div className="flex items-center space-x-3">
@@ -34,7 +34,15 @@ export const Navbar = () => {
               <>
                 <Link to="/dashboard" className="flex items-center space-x-1.5 text-text/80 hover:text-primary font-medium text-sm transition-colors px-2 py-1.5 rounded-lg hover:bg-primary/5">
                   <LayoutDashboard size={16} />
-                  <span className="hidden sm:inline">Dashboard</span>
+                  <span className="hidden sm:inline">Scanner</span>
+                </Link>
+                <Link to="/history" className="flex items-center space-x-1.5 text-text/80 hover:text-primary font-medium text-sm transition-colors px-2 py-1.5 rounded-lg hover:bg-primary/5">
+                  <History size={16} />
+                  <span className="hidden sm:inline">History</span>
+                </Link>
+                <Link to="/notifications" className="flex items-center space-x-1.5 text-text/80 hover:text-primary font-medium text-sm transition-colors px-2 py-1.5 rounded-lg hover:bg-primary/5">
+                  <Bell size={16} />
+                  <span className="hidden sm:inline">Alerts</span>
                 </Link>
                 <Link to="/profile" className="flex items-center space-x-1.5 text-text/80 hover:text-primary font-medium text-sm transition-colors px-2 py-1.5 rounded-lg hover:bg-primary/5">
                   <User size={16} />

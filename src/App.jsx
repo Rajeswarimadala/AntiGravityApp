@@ -6,6 +6,8 @@ import {
   LoginPage, 
   SignupPage, 
   DashboardPage, 
+  HistoryPage,
+  NotificationsPage,
   ProfilePage, 
   NotFoundPage 
 } from './pages';
@@ -28,6 +30,8 @@ function App() {
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/history" element={<HistoryPage />} />
+            <Route path="/notifications" element={<NotificationsPage />} />
             <Route path="/profile" element={<ProfilePage />} />
           </Route>
 
