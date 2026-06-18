@@ -56,4 +56,9 @@ export const deleteAnalysis = async (id) => {
   return response.data;
 };
 
+export const reportAnalysis = async (id) => {
+  const response = await client.put(`/api/analyses/${id}/report`);
+  return response.data;
+};
+
 export default client;

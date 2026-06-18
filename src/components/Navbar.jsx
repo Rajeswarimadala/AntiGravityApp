@@ -26,7 +26,7 @@ export const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center space-x-2">
             <Link to="/" className="text-2xl font-extrabold text-gradient hover:opacity-90 transition-opacity">
-              SocialGuard
+              ImposterX
             </Link>
           </div>
           <div className="flex items-center space-x-3">

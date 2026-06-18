@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Badge, Button, Input, Modal } from '../components';
-import { createAnalysis } from '../api/client';
+import { createAnalysis, reportAnalysis } from '../api/client';
 import { Shield, ShieldAlert, ShieldCheck, AlertTriangle, RefreshCw, HelpCircle, ExternalLink } from 'lucide-react';
 import toast from 'react-hot-toast';
 
@@ -148,15 +148,18 @@ export const DashboardPage = () => {
 
     // Save to Render backend in background
     try {
-      await createAnalysis({
+      const saved = await createAnalysis({
         username: finalResult.username,
         platform: finalResult.platform,
         followers: finalResult.followers,
         following: finalResult.following,
         posts: finalResult.posts,
         status: finalResult.status,
-        score: finalResult.score
+        score: finalResult.score,
+        reported: false
       });
+      finalResult.id = saved.id;
+      finalResult.reported = saved.reported;
       toast.success('Analysis logged in history.');
     } catch (err) {
       console.error(err);
@@ -165,6 +168,21 @@ export const DashboardPage = () => {
 
     setResult(finalResult);
     setIsScanning(false);
+  };
+
+  const handleLocalReport = async () => {
+    if (!result?.id) {
+      return toast.error('No scan record ID found to report');
+    }
+    try {
+      await reportAnalysis(result.id);
+      setResult(prev => ({ ...prev, reported: true }));
+      toast.success('Account reported locally in ImposterX database!');
+      setShowReportModal(false);
+    } catch (err) {
+      console.error(err);
+      toast.error('Failed to register local report');
+    }
   };
 
   const getStatusBadge = (status) => {
@@ -189,11 +207,11 @@ export const DashboardPage = () => {
   const getReportLink = (plat) => {
     switch (plat) {
       case 'Instagram':
-        return `https://help.instagram.com/388301724588523`;
+        return 'https://www.instagram.com';
       case 'X (Twitter)':
-        return `https://help.x.com/en/managing-your-account/report-an-account`;
+        return 'https://x.com';
       case 'Facebook':
-        return `https://www.facebook.com/help/167723853282354`;
+        return 'https://www.facebook.com';
       default:
         return 'https://google.com';
     }
@@ -517,10 +535,7 @@ export const DashboardPage = () => {
               </a>
               <Button 
                 variant="outline" 
-                onClick={() => {
-                  setShowReportModal(false);
-                  toast.success('Local database report logged.');
-                }}
+                onClick={handleLocalReport}
                 className="flex-1"
               >
                 Log Report Locally
