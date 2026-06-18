@@ -523,16 +523,14 @@ export const DashboardPage = () => {
             </div>
 
             <div className="pt-4 flex flex-col sm:flex-row gap-3">
-              <a 
+              <Button 
                 href={getReportLink(result.platform)} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="flex-1"
+                className="flex-1 flex items-center justify-center bg-primary hover:bg-primary-hover"
               >
-                <Button className="w-full flex items-center justify-center bg-primary hover:bg-primary-hover">
-                  Open {result.platform} Help Center <ExternalLink size={14} className="ml-1.5" />
-                </Button>
-              </a>
+                Open {result.platform} Help Center <ExternalLink size={14} className="ml-1.5" />
+              </Button>
               <Button 
                 variant="outline" 
                 onClick={handleLocalReport}

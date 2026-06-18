@@ -8,6 +8,7 @@ export const Button = ({
   isLoading = false,
   className = '',
   disabled,
+  href,
   ...props
 }) => {
   const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background disabled:opacity-50 disabled:cursor-not-allowed transform active:scale-95';
@@ -24,9 +25,23 @@ export const Button = ({
     lg: 'text-lg px-7 py-3.5',
   };
 
+  const combinedClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
+
+  if (href) {
+    return (
+      <a
+        href={href}
+        className={combinedClasses}
+        {...props}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <button
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
+      className={combinedClasses}
       disabled={disabled || isLoading}
       {...props}
     >
@@ -35,3 +50,4 @@ export const Button = ({
     </button>
   );
 };
+

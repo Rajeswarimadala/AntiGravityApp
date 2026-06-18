@@ -54,10 +54,10 @@ export const SignupPage = () => {
       <Card className="w-full max-w-md backdrop-blur-xl bg-surface/40 border-border/60">
         <div className="text-center mb-8">
           <Link to="/" className="text-3xl font-black text-gradient tracking-tight">
-            AntiGravity
+            ImposterX
           </Link>
           <h1 className="text-2xl font-bold text-text mt-4">Create Account</h1>
-          <p className="text-sm text-text-muted mt-1.5 font-medium">Join us to start building on the edge</p>
+          <p className="text-sm text-text-muted mt-1.5 font-medium">Join us to secure your social networks</p>
         </div>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

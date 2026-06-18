@@ -61,7 +61,7 @@ export const LoginPage = () => {
       <Card className="w-full max-w-md backdrop-blur-xl bg-surface/40 border-border/60">
         <div className="text-center mb-8">
           <Link to="/" className="text-3xl font-black text-gradient tracking-tight">
-            AntiGravity
+            ImposterX
           </Link>
           <h1 className="text-2xl font-bold text-text mt-4">Welcome Back</h1>
           <p className="text-sm text-text-muted mt-1.5 font-medium">

@@ -382,7 +382,7 @@ ${reasons.map((r, i) => `${i + 1}. ${r}`).join('\n')}
                   <div className="mt-5 flex items-center justify-between border-t border-border/40 pt-4 text-xs font-semibold text-text-muted">
                     <div className="flex items-center">
                       <Calendar size={12} className="mr-1.5 text-text-muted" />
-                      <span>Score: **{log.score}%**</span>
+                      <span>Score: <strong className="font-bold">{log.score}%</strong></span>
                     </div>
                     <div className="flex items-center space-x-2">
                       <Button 
